@@ -4,10 +4,13 @@
 
   <param name="turtlebot_node/gyro_scale_correction" value="1.0"/>
   <param name="turtlebot_node/odom_angular_scale_correction" value="1.0"/>
+  <param name="tf_prefix" value="$(env HOSTNAME)"/>
 
   <include file="$(find turtlebot_bringup)/minimal.launch">
     <arg name="urdf_file" value="$(find xacro)/xacro.py '$(find turtlebot_description)/robots/turtlebot.urdf.xacro'" />
   </include>
 <node pkg="tf" type="static_transform_publisher" name="base_ref" args="0 0 0 0 0 0 /odom /$(env HOSTNAME)/odom 100" />
+
+  <include file="$(find multirobot_lab)/launch/turtlebot/turtlebot_gateway.launch"/>
 
 </launch>
