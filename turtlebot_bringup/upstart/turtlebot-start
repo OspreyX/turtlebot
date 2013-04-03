@@ -24,6 +24,7 @@ if [ "$ROS_IP" = "" ]; then
     exit 1
 fi
 
+export HOSTNAME
 if [ -s /etc/ros/electric/turtlebot.launch ]; then
     setuidgid turtlebot roslaunch /etc/ros/electric/turtlebot.launch
 else
