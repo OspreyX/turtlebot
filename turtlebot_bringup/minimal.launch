@@ -31,6 +31,7 @@
     <rosparam command="load" file="$(find turtlebot_bringup)/config/diagnostics.yaml" />
   </node>
 
+  <arg name="gps_used" default="true" />
   <!-- The odometry estimator -->
    <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf">
     <param name="freq" value="10.0"/>
@@ -39,7 +40,7 @@
     <param name="odom_used" value="true"/>
     <param name="imu_used" value="true"/>
     <param name="vo_used" value="false"/>
-    <param name="gps_used" value="true"/>
+    <param name="gps_used" value="$(arg gps_used)"/>
     <param name="output_frame" value="odom"/>
     <remap from="imu_data" to="imu/data"/>
   </node>
