@@ -8,5 +8,6 @@
   <include file="$(find turtlebot_bringup)/minimal.launch">
     <arg name="urdf_file" value="$(find xacro)/xacro.py '$(find turtlebot_description)/robots/turtlebot.urdf.xacro'" />
   </include>
+<node pkg="tf" type="static_transform_publisher" name="base_ref" args="0 0 0 0 0 0 /odom /$(env HOSTNAME)/odom 100" />
 
 </launch>
